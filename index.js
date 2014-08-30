@@ -33,7 +33,7 @@ self.query = function (params) {
     res.on('data', function (chunk) { data += chunk; });
     res.on('end', function () {
       csv()
-        .from.string(data, csv_options)
+        .from(data, csv_options)
         .transform(function (record, index) {
           delete record._dummy;
           var match = true;
